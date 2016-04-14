@@ -14,7 +14,8 @@ def simulate(simulation,
              simulation_resolution=None,
              wait=False,
              disable_training=False,
-             save_path=None):
+             save_path=None,
+             max_frames=None):
     """Start the simulation. Performs three tasks
 
         - visualizes simulation in iPython notebook
@@ -70,6 +71,8 @@ def simulate(simulation,
     simulation_started_time = time.time()
 
     for frame_no in count():
+        if max_frames and frame_no >= max_frames:
+            break
         for _ in range(chunks_per_frame):
             simulation.step(chunk_length_s)
 
