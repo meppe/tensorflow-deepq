@@ -200,7 +200,7 @@ class DiscreteDeepQ(object):
         and backpropage the value function.
         """
         if self.number_of_times_train_called % self.train_every_nth == 0:
-            if len(self.experience) <  self.minibatch_size:
+            if len(self.experience) < self.minibatch_size:
                 return
 
             # sample experience.

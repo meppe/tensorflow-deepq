@@ -98,6 +98,7 @@ def simulate(simulation,
         # adding 1 to make it less likely to happen at the same time as
         # action taking.
         if (frame_no + 1) % visualize_every == 0:
+            print("Frame {} of {}".format(frame_no, max_frames))
             fps_estimate = frame_no / (time.time() - simulation_started_time)
             clear_output(wait=True)
             svg_html = simulation.to_html(["fps = %.1f" % (fps_estimate,)])

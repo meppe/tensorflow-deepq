@@ -108,7 +108,8 @@ else:
 
     # DiscreteDeepQ object
     current_controller = DiscreteDeepQ(g.observation_size, g.num_actions, brain, optimizer, session,
-                                       discount_rate=0.99, exploration_period=5000, max_experience=10000, 
+                                       discount_rate=0.99, exploration_period=5000, max_experience=10000,
+                                       minibatch_size=32,
                                        store_every_nth=4, train_every_nth=4,
                                        summary_writer=journalist)
     
@@ -141,7 +142,7 @@ try:
                  disable_training=False,
                  simulation_resolution=0.001,
                  save_path=None,
-                 max_frames=70)
+                 max_frames=30000)
 except KeyboardInterrupt:
     print("Interrupted")
 
@@ -189,8 +190,6 @@ g.to_html()
 
 
 # In[7]:
-
-
 
 
 # In[ ]:
